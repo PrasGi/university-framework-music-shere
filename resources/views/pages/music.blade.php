@@ -4,6 +4,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="/css/helpers/icon-standart.css">
     <link rel="stylesheet" href="/css/pages/music.css">
+    <link rel="stylesheet" href="/css/helpers/music-player.css">
 @endsection
 
 @section('content')
@@ -22,7 +23,7 @@
 
     <div class="row justify-content-center mb-4">
         <div class="col-md-4">
-            <form class="" action="{{ route('dashboard') }}">
+            <form class="" action="{{ route('music.index') }}">
                 <input type="text" class="form-control" placeholder="Search my music" name="search">
             </form>
         </div>
@@ -37,6 +38,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Artist</th>
+                <th scope="col">Views</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -46,9 +48,10 @@
                     <th scope="row">{{ $index + 1 }}</th>
                     <td>{{ $data->title }}</td>
                     <td>{{ $data->artist }}</td>
+                    <td>{{ $data->views }}</td>
                     <td>
-                        <button class="btn btn-warning btn-play" data-music-url="{{ '/' . $data->file_music }}"><i
-                                class="mdi mdi-play"></i> Play</button>
+                        <button class="btn btn-warning btn-play" data-music-url="{{ '/' . $data->file_music }}"
+                            data-music-id="{{ $data->id }}"><i class="mdi mdi-play"></i> Play</button>
                         <button class="btn btn-outline-warning"><i class="mdi mdi-pencil-box-outline"></i> Edit</button>
                         <button class="btn btn-outline-danger"><i class="mdi mdi-delete"></i> Delete</button>
                     </td>
@@ -57,21 +60,14 @@
         </tbody>
     </table>
 
-    <div id="music-player" class="music-player rounded-pill">
-        <div class="audio-controls">
-            <button id="pause-btn" class="btn btn-outline-warning"><i class="mdi mdi-pause"></i> Pause</button>
-            <div id="time-elapsed" class="time-elapsed"></div>
-        </div>
-        <div class="progress-bar-container">
-            <div id="progress-bar" class="progress-bar"></div>
-        </div>
-        <audio id="audio-player" controls>
-            <source src="" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+    <div class="d-flex justify-content-center">
+        {{ $datas->links() }}
     </div>
+
+    @include('components.music-player')
 @endsection
 
 @section('script-body')
     <script src="/js/pages/music.js"></script>
+    <script src="/js/helpers/music-player.js"></script>
 @endsection

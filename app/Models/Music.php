@@ -16,13 +16,14 @@ class Music extends Model
         'file_thumbnail',
         'artist',
         'lyrics',
+        'views',
         'user_id',
     ];
 
     // search filter
     public function scopeSearch($query, $search)
     {
-        return $query->where('title', 'like', '%' . $search . '%');
+        return $query->where('title', 'like', '%' . $search . '%')->orWhere('artist', 'like', '%' . $search . '%');
     }
 
     public function user()

@@ -22,5 +22,6 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('music')->group(function () {
         Route::get('/', [MusicController::class, 'index'])->name('music.index');
         Route::post('/', [MusicController::class, 'store'])->name('music.store');
+        Route::post('/{music}/view', [MusicController::class, 'addView'])->name('music.add.view');
     });
 });

@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class MusicController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $datas = Music::paginate(25);
+        $datas = Music::query();
+
+        if ($request->has('search')) {
+            $datas = $datas->search($request->search);
+        }
+
+        $datas = $datas->paginate(8)->withQueryString();
+
         return view('pages.music', compact(['datas']));
     }
 
@@ -39,5 +46,15 @@ class MusicController extends Controller
                 'message' => 'Internal server error'
             ]);
         }
+    }
+
+    public function addView(Music $music)
+    {
+        $music->views += 1;
+        $music->save();
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'View added successfully'
+        ]);
     }
 }
