@@ -1,25 +1,27 @@
 <nav class="navbar p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg"
+        <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="assets/images/logo-large.png"
                 alt="logo" /></a>
     </div>
     <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
         </button>
-        <ul class="navbar-nav w-100">
-            <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                    <input type="text" class="form-control" placeholder="Search products">
-                </form>
-            </li>
-        </ul>
+        @if (Route::currentRouteName() == 'dashboard')
+            <ul class="navbar-nav w-100">
+                <li class="nav-item w-100">
+                    <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search" action="{{ route('dashboard') }}">
+                        <input type="text" class="form-control" placeholder="Search music" name="search">
+                    </form>
+                </li>
+            </ul>
+        @endif
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                     <div class="navbar-profile">
                         <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Templar's true</p>
+                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}</p>
                         <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                     </div>
                 </a>
@@ -38,7 +40,7 @@
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
+                    <a class="dropdown-item preview-item" href="{{ route('logout') }}">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-logout text-danger"></i>

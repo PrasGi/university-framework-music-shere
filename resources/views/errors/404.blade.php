@@ -10,7 +10,7 @@
     <title>Senjani Kitchen</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
@@ -136,7 +136,7 @@
             <h2>404 - Page not found</h2>
             <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.
             </p>
-            <a href="{{ route('landing') }}">Go To Homepage</a>
+            <a href="{{ route('dashboard') }}">Go To Homepage</a>
         </div>
     </div>
 

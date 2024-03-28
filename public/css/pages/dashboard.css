@@ -1,0 +1,78 @@
+/* CSS untuk membuat tombol play berada di sebelah kanan title dan name author */
+.card-body {
+    position: relative;
+    /* Membuat posisi relatif untuk card-body */
+}
+
+.btn-circle {
+    position: absolute;
+    /* Membuat posisi absolut untuk tombol play */
+    top: 32px;
+    /* Menentukan jarak dari atas */
+    right: 30px;
+    /* Menentukan jarak dari kanan */
+    border-radius: 50%;
+    /* Membuat border-radius agar tombol berbentuk lingkaran */
+}
+
+.icon-play {
+    font-size: 3.5vh;
+    /* Menentukan ukuran font */
+    position: relative;
+    /* Membuat posisi relatif untuk ikon */
+    top: 2px;
+    /* Menggeser sedikit ke bawah */
+    left: 2px;
+    /* Menggeser sedikit ke kanan */
+}
+
+#btn-like i {
+    position: relative;
+    top: 4px;
+    font-size: 20px; /* Ubah ukuran ikon sesuai kebutuhan */
+}
+
+.row-items {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Efek scroll halus untuk browser WebKit */
+}
+
+.row-items::-webkit-scrollbar {
+    display: flex; /* Menyembunyikan scrollbar */
+}
+
+.row-items .col-md-3 {
+    flex: 0 0 auto;
+    width: 18rem;
+    scroll-snap-align: start;
+    margin-right: 10px; /* Jarak antar item */
+}
+
+.row-items .col-md-3 .card {
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Mengatur gaya scrollbar */
+/* Track */
+::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888888; /* Warna background handle scrollbar */
+    border-radius: 5px; /* Membuat border-radius pada handle scrollbar */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #c9ab26; /* Warna background handle scrollbar saat hover */
+}
