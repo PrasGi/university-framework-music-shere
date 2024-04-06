@@ -32,6 +32,10 @@
     font-size: 20px; /* Ubah ukuran ikon sesuai kebutuhan */
 }
 
+small {
+    margin-right: 10px;
+}
+
 .row-items {
     display: flex;
     flex-wrap: nowrap;

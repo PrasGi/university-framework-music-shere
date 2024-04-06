@@ -1,8 +1,11 @@
 // bar music
+let currentId = 0;
+
 $(document).ready(function () {
     $(".btn-play").click(function () {
         var url = $(this).data("music-url");
         var id = $(this).data("music-id");
+        currentId = id;
         $("#audio-player").attr("src", url);
         $("#music-player").addClass("show");
 
@@ -33,13 +36,13 @@ $(document).ready(function () {
     // Tambahkan event listener untuk tombol minimize
     $("#minimize-btn").click(function () {
         $("#music-player").slideUp("slow");
-        $("#maximize-btn").slideDown("slow").show(); // Tampilkan tombol maximize
+        $("#maximize-btn").fadeIn("slow").show(); // Tampilkan tombol maximize
     });
 
     // Tambahkan event listener untuk tombol maximize
     $("#maximize-btn").click(function () {
+        $(this).fadeOut("slow"); // Sembunyikan tombol maximize
         $("#music-player").slideDown("slow");
-        $(this).hide(); // Sembunyikan tombol maximize
     });
 
     $("#button-control-audio").click(function () {
@@ -57,7 +60,6 @@ $(document).ready(function () {
 function addView(id) {
     // Mendapatkan CSRF token dari meta tag dalam halaman
     var csrfToken = $('meta[name="csrf-token"]').attr("content");
-    console.log(id);
 
     $.ajax({
         url: "/music/" + id + "/view",
@@ -70,4 +72,8 @@ function addView(id) {
             console.log(response);
         },
     });
+}
+
+function downloadMusic() {
+    window.location.href = "/music/" + currentId + "/download";
 }

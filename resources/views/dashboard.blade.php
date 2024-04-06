@@ -22,10 +22,8 @@
                                         {{ Str::limit($data->artist, 10) }}</h5>
                                     <p class="card-text cursor-pointer" onclick="clickTitle()">
                                         {{ Str::limit($data->title, 15) }}</p>
-                                    <small id="btn-like-{{ $data->id }}"
-                                        onclick="likeClick('btn-like-{{ $data->id }}')"
-                                        class="text-muted cursor-pointer"><i class="mdi mdi-thumb-up cursor-pointer"></i>
-                                        27 </small>
+                                    <small class="text-muted cursor-pointer"><i class="mdi mdi-download"></i>
+                                        {{ $data->downloads }} </small>
                                     <small id="btn-like-1" class="text-muted "><i class="mdi mdi-eye "></i>
                                         {{ $data->views }}</small>
                                 </div>
@@ -64,10 +62,8 @@
                                         {{ Str::limit($dataP->artist, 10) }}</h5>
                                     <p class="card-text cursor-pointer" onclick="clickTitle()">
                                         {{ Str::limit($dataP->title, 20) }}</p>
-                                    <small id="btn-like-{{ $dataP->id }}"
-                                        onclick="likeClick('btn-like-{{ $dataP->id }}')"
-                                        class="text-muted cursor-pointer"><i class="mdi mdi-thumb-up cursor-pointer"></i>
-                                        27 </small>
+                                    <small class="text-muted cursor-pointer"><i class="mdi mdi-download"></i>
+                                        {{ $dataP->downloads }} </small>
                                     <small id="btn-like-1" class="text-muted "><i class="mdi mdi-eye "></i>
                                         {{ $dataP->views }}</small>
                                 </div>
@@ -102,10 +98,8 @@
                                         {{ Str::limit($dataL->artist, 10) }}</h5>
                                     <p class="card-text cursor-pointer" onclick="clickTitle()">
                                         {{ Str::limit($dataL->title, 20) }}</p>
-                                    <small id="btn-like-{{ $dataL->id }}"
-                                        onclick="likeClick('btn-like-{{ $dataL->id }}')"
-                                        class="text-muted cursor-pointer"><i class="mdi mdi-thumb-up cursor-pointer"></i>
-                                        27 </small>
+                                    <small class="text-muted cursor-pointer"><i class="mdi mdi-download"></i>
+                                        {{ $dataL->downloads }} </small>
                                     <small id="btn-like-1" class="text-muted "><i class="mdi mdi-eye "></i>
                                         {{ $dataL->views }}</small>
                                 </div>

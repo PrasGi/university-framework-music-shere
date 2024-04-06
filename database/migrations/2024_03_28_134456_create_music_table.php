@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('artist');
             $table->text('lyrics')->nullable();
             $table->string('views')->default('0');
+            $table->string('downloads')->default('0');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->dateTime('approval_at')->nullable();
             $table->timestamps();

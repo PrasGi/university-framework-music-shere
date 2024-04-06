@@ -17,6 +17,7 @@ class Music extends Model
         'artist',
         'lyrics',
         'views',
+        'downloads',
         'user_id',
     ];
 

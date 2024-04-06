@@ -1,5 +1,6 @@
 <div id="music-player" class="music-player rounded-pill">
-    <button id="download-btn" class="btn-outline-warning btn-music"><i class="mdi mdi-download"></i></button>
+    <button onclick="downloadMusic()" id="download-btn" class="btn-outline-warning btn-music"><i
+            class="mdi mdi-download"></i></button>
     <button id="minimize-btn" class="btn-outline-warning btn-music"><i class="mdi mdi-fullscreen-exit"></i></button>
     <button id="button-control-audio" class="btn-outline-warning btn-music"><i class="mdi mdi-pause"></i></button>
     <div class="progress-bar-container m-1">
