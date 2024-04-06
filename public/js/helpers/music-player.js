@@ -12,11 +12,9 @@ $(document).ready(function () {
 
         // Tampilkan durasi pemutaran
         audio.addEventListener("timeupdate", function () {
-            var timeElapsed = document.getElementById("time-elapsed");
             var progressBar = document.getElementById("progress-bar");
             var percentage = (audio.currentTime / audio.duration) * 100;
             progressBar.style.width = percentage + "%";
-            timeElapsed.innerText = formatTime(audio.currentTime);
         });
 
         // Tutup pemutar musik saat audio selesai diputar
@@ -31,17 +29,30 @@ $(document).ready(function () {
         audio.pause(); // Hentikan pemutaran audio
         $("#music-player").removeClass("show"); // Sembunyikan pemutar musik
     });
-});
 
-function formatTime(seconds) {
-    var minutes = Math.floor(seconds / 60);
-    var remainingSeconds = Math.floor(seconds % 60);
-    return (
-        minutes +
-        ":" +
-        (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds)
-    );
-}
+    // Tambahkan event listener untuk tombol minimize
+    $("#minimize-btn").click(function () {
+        $("#music-player").slideUp("slow");
+        $("#maximize-btn").slideDown("slow").show(); // Tampilkan tombol maximize
+    });
+
+    // Tambahkan event listener untuk tombol maximize
+    $("#maximize-btn").click(function () {
+        $("#music-player").slideDown("slow");
+        $(this).hide(); // Sembunyikan tombol maximize
+    });
+
+    $("#button-control-audio").click(function () {
+        var audio = document.getElementById("audio-player");
+        if (audio.paused) {
+            audio.play();
+            $(this).html('<i class="mdi mdi-pause"></i>');
+        } else {
+            audio.pause();
+            $(this).html('<i class="mdi mdi-play"></i>');
+        }
+    });
+});
 
 function addView(id) {
     // Mendapatkan CSRF token dari meta tag dalam halaman

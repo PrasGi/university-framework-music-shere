@@ -5,7 +5,9 @@
                 alt="logo" /></a>
     </div>
     <ul class="nav">
-        @include('components.nav-profile')
+        @auth()
+            @include('components.nav-profile')
+        @endauth
         <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
         </li>

@@ -2,20 +2,25 @@
     position: fixed;
     z-index: 9999;
     bottom: 0;
-    left: 10%;
+    left: 5%;
     right: 0;
-    background-color: #0f1015;
-    border-top: 1px solid #d39e00;
+    margin-bottom: 15px;
+    background-color: rgba(15, 16, 21, 0.8);
+    border: 1px solid #d39e00;
     padding: 10px;
     display: none;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
 }
 
 .audio-controls {
     display: flex;
     align-items: center;
+}
+
+#audio-player {
+    display: none;
 }
 
 .time-elapsed {
@@ -30,6 +35,7 @@
 }
 
 .progress-bar {
+    position: relative;
     height: 100%;
     background-color: #ffbf00;
 }
@@ -38,16 +44,27 @@
     display: flex;
 }
 
-.btn-close-music {
+.btn-music {
     background-color: transparent;
     color: #ffffff; /* Warna teks putih */
-    border: none; /* Menghapus border */
+    border-radius: 40%; /* Membuat tombol berbentuk lingkaran */
+    border-color: #d39e00;
     font-size: 16px;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+    margin: 5px;
 }
 
-.btn-close-music:hover {
-    font-size: 23px;
+#maximize-btn {
+    position: fixed;
+    z-index: 9998;
+    bottom: 15px;
+    left: 20px;
+    border-color: #d39e00;
+    margin-bottom: 15px;
+    display: none;
+}
+
+#maximize-btn i {
+    position: relative;
+    top: 2px;
 }

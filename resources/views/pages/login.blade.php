@@ -59,7 +59,8 @@
                                     <button class="btn btn-google col">
                                         <i class="mdi mdi-google"></i> Login with google </button>
                                 </div>
-                                <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p>
+                                <p class="sign-up">Don't have an Account?<a href="{{ route('register.page') }}"> Sign
+                                        Up</a></p>
                             </form>
                         </div>
                     </div>
