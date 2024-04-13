@@ -16,6 +16,11 @@ class StoreHelper
             $file->move(public_path('/store/thumbnail'), $fileName);
 
             return 'store/thumbnail/' . $fileName;
+        } elseif ($type == 'profile') {
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('/store/profile'), $fileName);
+
+            return 'store/thumbnail/' . $fileName;
         } else {
             return null;
         }
