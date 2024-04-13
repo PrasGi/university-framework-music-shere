@@ -58,7 +58,7 @@ class MusicController extends Controller
         ]);
     }
 
-    public function update(Request $request, Music $music)
+    public function update(Request $request)
     {
         $validate = $request->validate([
             'title' => 'required',
@@ -66,6 +66,7 @@ class MusicController extends Controller
             'file_thumbnail' => 'nullable|mimes:jpeg,jpg,png|max:10000',
             'artist' => 'required',
             'lyrics' => 'nullable',
+            'music_id' => 'required|exists:music,id',
         ]);
 
         if ($request->hasFile('file_music')) {
@@ -76,6 +77,7 @@ class MusicController extends Controller
             $validate['file_thumbnail'] = StoreHelper::storeFile($request->file('file_thumbnail'), 'thumbnail');
         }
 
+        $music = Music::find($request->music_id);
         if ($music->update($validate)) {
             return redirect()->back()->with('success', 'Music has been updated');
         } else {

@@ -28,13 +28,6 @@ class MusicSeeder extends Seeder
             'user_id' => 1,
         ]);
         Music::create([
-            'file_music' => 'seeder/music/Ariadne - Karma Electronic Pop NCS - Copyright Free Music (1).mp3',
-            'file_thumbnail' => 'seeder/thumbnail/Screenshot 2024-03-29 005631.png',
-            'title' => 'Ariadne - Karma Electronic Pop NCS - Copyright Free Music (1)',
-            'artist' => 'NCS',
-            'user_id' => 1,
-        ]);
-        Music::create([
             'file_music' => 'seeder/music/Ariadne - Karma Electronic Pop NCS - Copyright Free Music.mp3',
             'file_thumbnail' => 'seeder/thumbnail/Screenshot 2024-03-29 005631.png',
             'title' => 'Ariadne - Karma Electronic Pop NCS - Copyright Free Music',
@@ -87,13 +80,6 @@ class MusicSeeder extends Seeder
             'file_music' => "seeder/music/Low Mileage - I'm Not Ready Garage NCS - Copyright Free Music.mp3",
             'file_thumbnail' => 'seeder/thumbnail/Screenshot 2024-03-29 005736.png',
             'title' => "Low Mileage - I'm Not Ready Garage NCS - Copyright Free Music",
-            'artist' => 'NCS',
-            'user_id' => 1,
-        ]);
-        Music::create([
-            'file_music' => 'seeder/music/Max Brhon - AI Midtempo Bass NCS - Copyright Free Music (1).mp3',
-            'file_thumbnail' => 'seeder/thumbnail/thumb-1.png',
-            'title' => 'Max Brhon - AI Midtempo Bass NCS - Copyright Free Music (1)',
             'artist' => 'NCS',
             'user_id' => 1,
         ]);

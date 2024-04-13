@@ -52,13 +52,25 @@
                     <td>
                         <button class="btn btn-warning btn-play" data-music-url="{{ '/' . $data->file_music }}"
                             data-music-id="{{ $data->id }}"><i class="mdi mdi-play"></i> Play</button>
-                        <button class="btn btn-outline-warning"><i class="mdi mdi-pencil-box-outline"></i> Edit</button>
-                        <button class="btn btn-outline-danger"><i class="mdi mdi-delete"></i> Delete</button>
+                        <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#update-modal"
+                            data-bs-id="{{ $data->id }}" data-bs-title="{{ $data->title }}"
+                            data-bs-artist="{{ $data->artist }}" data-bs-lyrics="{{ $data->lyrics }}"><i
+                                class="mdi mdi-pencil-box-outline"></i> Edit</button>
+                        <form id="delete-form" class="d-inline" action="{{ route('music.destroy', $data->id) }}"
+                            method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger" onclick="confirmDelete()"><i
+                                    class="mdi mdi-delete"></i>
+                                Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+    @include('components.modal-update-music')
 
     <div class="d-flex justify-content-center">
         {{ $datas->links() }}

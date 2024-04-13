@@ -44,3 +44,27 @@ $(document).ready(function () {
         });
     });
 });
+
+// update modal
+const modal_update = document.querySelector("#update-modal");
+modal_update.addEventListener("show.bs.modal", function () {
+    const button = event.relatedTarget;
+
+    const id = button.getAttribute("data-bs-id");
+    const title = button.getAttribute("data-bs-title");
+    const artist = button.getAttribute("data-bs-artist");
+    const lyrics = button.getAttribute("data-bs-lyrics"); // Jika diperlukan
+
+    console.log(id, title, artist, lyrics);
+
+    const modal = document.querySelector("#update-modal");
+    modal.querySelector("#update-id").value = id;
+    modal.querySelector("#update-title").value = title;
+    modal.querySelector("#update-artist").value = artist;
+    modal.querySelector("#update-lyrics").value = lyrics; // Jika diperlukan
+});
+
+// confirm delete
+function confirmDelete() {
+    return confirm("Apakah Anda yakin ingin menghapus item ini?");
+}

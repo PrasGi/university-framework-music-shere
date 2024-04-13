@@ -6,6 +6,7 @@
     right: 0;
     margin-bottom: 15px;
     background-color: rgba(15, 16, 21, 0.8);
+    backdrop-filter: blur(3px);
     border: 1px solid #d39e00;
     padding: 10px;
     display: none;
