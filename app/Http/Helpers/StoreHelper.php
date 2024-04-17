@@ -20,7 +20,7 @@ class StoreHelper
             $fileName = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('/store/profile'), $fileName);
 
-            return 'store/thumbnail/' . $fileName;
+            return 'store/profile/' . $fileName;
         } else {
             return null;
         }

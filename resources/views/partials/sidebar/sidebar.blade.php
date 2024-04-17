@@ -28,10 +28,10 @@
                 <span class="menu-title">Music</span>
                 <i class="menu-arrow"></i>
             </a>
+            {{-- @if (Route::currentRouteName() == 'music.index') active @endif --}}
             <div class="collapse" id="item-music">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link"
-                            href="{{ route('music.index') }} @if (Route::currentRouteName() == 'music.index') active @endif">My
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('music.index') }}">My
                             Music</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="#">Analysis</a></li>

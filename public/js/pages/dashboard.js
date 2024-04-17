@@ -18,11 +18,3 @@ function likeClick(btnId) {
     btn.innerHTML = btn.innerHTML.replace(/\d+/, currentCount);
     console.log("like clicked");
 }
-
-function clickAuthor() {
-    console.log("author clicked");
-}
-
-function clickTitle() {
-    console.log("title clicked");
-}

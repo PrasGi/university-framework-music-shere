@@ -70,4 +70,20 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect()->back();
     }
+
+    public function changePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required',
+        ]);
+
+        if (password_verify($request->old_password, $user->password)) {
+            $user->password = bcrypt($request->new_password);
+            $user->save();
+            return redirect()->back()->with('success', 'Password changed successfully');
+        } else {
+            return redirect()->back()->with('error', 'Failed to change password');
+        }
+    }
 }

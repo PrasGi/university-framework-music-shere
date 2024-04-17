@@ -18,6 +18,14 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/assets/images/favicon.png" />
+
+    <style>
+        .card {
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(19, 19, 19, 0.6);
+        }
+    </style>
 </head>
 
 <body>
@@ -61,7 +69,7 @@
                                 </div>
                                 <div class="d-flex">
                                     <button class="btn btn-google col">
-                                        <i class="mdi mdi-google"></i> Login with google </button>
+                                        <i class="mdi mdi-google"></i> Register with google </button>
                                 </div>
                                 <p class="sign-up text-center">Already have an Account?<a
                                         href="{{ route('login.page') }}"> Sign In</a>

@@ -18,6 +18,14 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="/assets/images/favicon.png" />
+
+    <style>
+        .card {
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(19, 19, 19, 0.6);
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +55,8 @@
                                 <div class="form-group d-flex align-items-center justify-content-between">
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" name="remember_me"> Remember
+                                            <input type="checkbox" class="form-check-input p_remember"
+                                                name="remember_me"> Remember
                                             me </label>
                                     </div>
                                     <a href="#" class="forgot-pass">Forgot password</a>

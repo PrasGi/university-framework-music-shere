@@ -1,6 +1,6 @@
 <nav class="navbar p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="assets/images/logo-large.png"
+        <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard') }}"><img src="/assets/images/logo-large.png"
                 alt="logo" /></a>
     </div>
     <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -23,7 +23,11 @@
                         @if (!auth()->check())
                             <p class="mb-0 d-none d-sm-block navbar-profile-name">Login mas</p>
                         @else
-                            <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
+                            <img class="img-xs rounded-circle"
+                                src="@if (auth()->user()->avatar) {{ '/' . auth()->user()->avatar }}
+                            @else
+                                /assets/images/faces/face27.jpg @endif"
+                                alt="">
                             <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ auth()->user()->name }}</p>
                             <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                         @endif
@@ -46,7 +50,7 @@
                     @else
                         <h6 class="p-3 mb-0">Profile</h6>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
+                        <a class="dropdown-item preview-item" href="{{ route('profile.index') }}">
                             <div class="preview-thumbnail">
                                 <div class="preview-icon bg-dark rounded-circle">
                                     <i class="mdi mdi-settings text-success"></i>

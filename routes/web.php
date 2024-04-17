@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -27,5 +28,12 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/', [MusicController::class, 'update'])->name('music.update');
         Route::delete('/{music}', [MusicController::class, 'destroy'])->name('music.destroy');
         Route::get('/{music}/download', [MusicController::class, 'download'])->name('music.download');
+    });
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('profile.index');
+        Route::put('/{user}', [UserController::class, 'update'])->name('profile.update');
+        Route::put('/{user}/avatar', [UserController::class, 'changeAvatar'])->name('profile.change.avatar');
+        Route::put('/{user}/password', [AuthController::class, 'changePassword'])->name('profile.change.password');
     });
 });
