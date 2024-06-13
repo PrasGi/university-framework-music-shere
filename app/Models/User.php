@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Music::class);
     }
+
+    public function forums()
+    {
+        return $this->hasMany(Forum::class);
+    }
 }

@@ -5,7 +5,7 @@
                 alt="logo" /></a>
     </div>
     <ul class="nav">
-        @auth()
+        @auth
             @include('components.nav-profile')
         @endauth
         <li class="nav-item nav-category">
@@ -39,7 +39,7 @@
             </div>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('forum.index')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
